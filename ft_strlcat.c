@@ -1,15 +1,19 @@
 #include "libft.h"
 
-char	*ft_strchr(const char *buf, int c)
+char	*ft_strlcat(char *dst, const char *src, int size)
 {
 	int	i;
+	int	len;
 
 	i = 0;
-	while (buf[i] != '\0')
+	len = 0;
+	while (dst[len] != '\0')
+		len++;
+	while ((src[i] != '\0') && (i < size))
 	{
-		if (buf[i] == c)
-			return (buf + i);
+		dst[len+i] = src[i];
 		i++;
 	}
-	return (NULL);
+	dst[size+i] = '\0';
+	return (dst);
 }
