@@ -8,8 +8,8 @@ char	*ft_strchr(const char *buf, int c)
 	while (buf[i] != '\0')
 	{
 		if (buf[i] == c)
-			return (buf + i);
+			return ((char *)(buf + i));
 		i++;
 	}
-	return (NULL);
+	return (0);
 }

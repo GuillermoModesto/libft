@@ -13,5 +13,5 @@ void	*ft_memchr(const void *buf, int c, int count)
 			return (aux_buf + i);
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
