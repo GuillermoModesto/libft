@@ -4,9 +4,7 @@ char	*ft_strrchr(const char *buf, int c)
 {
 	int	i;
 
-	i = 0;
-	while (buf[i] != '\0')
-		i++;
+	i = ft_strlen((char *)buf);
 	while (i >= 0)
 	{
 		if (buf[i] == c)
