@@ -6,9 +6,7 @@ char	*ft_strlcat(char *dst, const char *src, int size)
 	int	len;
 
 	i = 0;
-	len = 0;
-	while (dst[len] != '\0')
-		len++;
+	len = ft_strlen(dst);
 	while ((src[i] != '\0') && (i < size))
 	{
 		dst[len + i] = src[i];
