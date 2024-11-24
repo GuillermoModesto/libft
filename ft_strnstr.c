@@ -6,11 +6,9 @@ char	*ft_strnstr(const char *big, const char *little, int len)
 	int	i;
 	int	j;
 
-	lil_len = 0;
+	lil_len = ft_strlen((char *)little);
 	i = 0;
 	j = 0;
-	while (little[lil_len] != '\0')
-		lil_len++;
 	while ((big[i] != '\0') && (i < len))
 	{
 		j = 0;
