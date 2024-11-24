@@ -21,5 +21,6 @@ int		ft_strncmp(const char *str1, const char *str2, int count);
 char	*ft_strrchr(const char *buf, int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+char	*ft_strnstr(const char *big, const char *little, int len);
 
 #endif

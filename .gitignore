@@ -1,3 +1,4 @@
-test.c
+test00.c
 a.out
-libft.h.gch
+*.gch
+*.swp
