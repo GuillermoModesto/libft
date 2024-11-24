@@ -2,3 +2,5 @@ test00.c
 a.out
 *.gch
 *.swp
+*.a
+*.o
