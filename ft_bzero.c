@@ -8,5 +8,8 @@ void	ft_bzero(void *s, int n)
 	i = 0;
 	aux = (char *)s;
 	while (i < n)
+	{
 		aux[i] = '\0';
+		i++;
+	}
 }
