@@ -27,5 +27,6 @@ char	*ft_strnstr(const char *big, const char *little, int len);
 void	*ft_calloc(int nelem, int elsize);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
