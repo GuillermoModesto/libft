@@ -23,5 +23,6 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_strnstr(const char *big, const char *little, int len);
 void	*ft_calloc(int nelem, int elsize);
+char	*ft_strdup(const char *s);
 
 #endif
