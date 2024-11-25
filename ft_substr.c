@@ -4,7 +4,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t		i;
 	size_t		size;
-	char	*new;
+	char		*new;
 
 	i = 0;
 	size = ft_strlen(ft_strrchr(s, s[start]));
