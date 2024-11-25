@@ -22,5 +22,6 @@ char	*ft_strrchr(const char *buf, int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_strnstr(const char *big, const char *little, int len);
+void	*ft_calloc(int nelem, int elsize);
 
 #endif
