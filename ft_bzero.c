@@ -9,7 +9,7 @@ void	ft_bzero(void *s, int n)
 	aux = (char *)s;
 	while (i < n)
 	{
-		aux[i] = '\0';
+		aux[i] = 0;
 		i++;
 	}
 }
