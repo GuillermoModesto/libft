@@ -2,12 +2,12 @@
 
 char	**ft_split(char const *s, char c)
 {
-	int i;
-	int j;
-	int z;
-	int size;
-	char *aux;
-	char **mt;
+	int		i;
+	int		j;
+	int		z;
+	int		size;
+	char	*aux;
+	char	**mt;
 
 	i = 0;
 	j = 0;
@@ -19,15 +19,14 @@ char	**ft_split(char const *s, char c)
 		i++;
 	}
 	size += 2;
-	//printf("%d\n", size);
-	mt = (char **) malloc(size * sizeof(char));
+	mt = (char **) malloc(size * sizeof(char *));
 	i = 0;
 	size = 0;
 	while (s[i] != '\0')
 	{
 		while ((s[i] != '\0') && (s[i] != c))
 			i++;
-		aux = (char *) malloc((i - j + 1) * sizeof(char));
+		aux = (char *) malloc((i - j + 1) * sizeof(char *));
 		i++;
 		if (aux == NULL)
 			return (NULL);
@@ -42,9 +41,7 @@ char	**ft_split(char const *s, char c)
 		mt[size] = aux;
 		size++;
 		j++;
-		//printf("%s\n", aux);
-		//free(aux);
 	}
-	mt[size] = '\0';
-	return mt;
+	mt[size] = NULL;
+	return (mt);
 }
