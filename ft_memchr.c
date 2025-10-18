@@ -10,8 +10,8 @@ void	*ft_memchr(const void *buf, int c, int count)
 	while (i < count)
 	{
 		if (aux_buf[i] == c)
-			return (aux_buf + i);
+			return ((void *)(aux_buf + i));
 		i++;
 	}
-	return (0);
+	return ((void *)0);
 }
