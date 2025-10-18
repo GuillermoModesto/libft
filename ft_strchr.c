@@ -11,5 +11,5 @@ char	*ft_strchr(const char *buf, int c)
 			return ((char *)(buf + i));
 		i++;
 	}
-	return (0);
+	return ((void *)0);
 }
