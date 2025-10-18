@@ -1,15 +1,6 @@
 #include "libft.h"
 
-void	ft_bzero(void *s, int n)
+void	ft_bzero(void *s, size_t n)
 {
-	int		i;
-	char	*aux;
-
-	i = 0;
-	aux = (char *)s;
-	while (i < n)
-	{
-		aux[i] = 0;
-		i++;
-	}
+	ft_memset(s, 0, n);
 }
