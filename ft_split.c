@@ -1,78 +1,83 @@
 #include "libft.h"
 
-int	count_words(char const *s, char c)
+size_t	count_words(const char *s, char c)
 {
-	int	i;
-	int	count;
+	size_t	i;
+	size_t	n;
 
 	i = 0;
-	count = 0;
-	while (s[i] != '\0')
+	n = 0;
+	while (s[i])
 	{
-		if (s[i] == c)
-			count++;
-		i++;
-	}
-	return (count + 1);
-}
-
-char	*create_space_word(char const *s, int start, int end)
-{
-	int		i;
-	char	*word;
-
-	i = start;
-	word = (char *)malloc((end - start + 1) * sizeof(char));
-	if (word == NULL)
-		return (NULL);
-	while (i < end)
-	{
-		word[i - start] = s[i];
-		i++;
-	}
-	word[end - start] = '\0';
-	return (word);
-}
-
-void	*fill_words(char **mt, char const *s, char c)
-{
-	int	i;
-	int	j;
-	int	size;
-
-	i = 0;
-	j = 0;
-	size = 0;
-	while (s[i] != '\0')
-	{
-		while (s[i] == c && s[i] != '\0')
+		while (s[i] && s[i] == c)
 			i++;
-		j = i;
-		while (s[i] != c && s[i] != '\0')
-			i++;
-		if (j < i)
+		if (s[i] && s[i] != c)
 		{
-			mt[size] = create_space_word(s, j, i);
-			if (mt[size] == NULL)
-				return (NULL);
-			size++;
+			n++;
+			while (s[i] && s[i] != c)
+				i++;
 		}
 	}
-	mt[size] = NULL;
+	return (n);
+}
+
+char	*substr_dumpy(const char *s, size_t start, size_t len)
+{
+	char	*p;
+	size_t	i;
+
+	p = (char *)malloc(len + 1);
+	if (!p)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		p[i] = s[start + i];
+		i++;
+	}
+	p[len] = '\0';
+	return (p);
+}
+
+void	*mega_free(char **out, size_t k)
+{
+	while (k > 0)
+		free(out[--k]);
+	free(out);
 	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		size;
-	char	**mt;
+	size_t	i;
+	size_t	start;
+	size_t	k;
+	size_t	words;
+	char	**out;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
-	size = count_words(s, c);
-	mt = (char **)malloc((size + 1) * sizeof(char *));
-	if (mt == NULL)
+	words = count_words(s, c);
+	out = (char **)malloc((words + 1) * sizeof(char *));
+	if (!out)
 		return (NULL);
-	fill_words(mt, s, c);
-	return (mt);
+	i = 0;
+	k = 0;
+	while (s[i])
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		start = i;
+		while (s[i] && s[i] != c)
+			i++;
+		if (i > start)
+		{
+			out[k] = substr_dumpy(s, start, i - start);
+			if (!out[k])
+				return (mega_free(out, k));
+			k++;
+		}
+	}
+	out[k] = NULL;
+	return (out);
 }
