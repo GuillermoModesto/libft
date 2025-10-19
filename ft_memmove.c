@@ -6,7 +6,7 @@ void	*ft_memmove(void *dest, const void *src, size_t count)
 	char	*dest_aux;
 	char	*src_aux;
 
-	if (!dst && !src)
+	if (!dest && !src)
 		return (NULL);
 	dest_aux = (char *)dest;
 	src_aux = (char *)src;
