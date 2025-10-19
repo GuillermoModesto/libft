@@ -6,7 +6,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t count)
 	char	*dest_aux;
 	char	*src_aux;
 
-	if (!dst && !src)
+	if (!dest && !src)
 		return (NULL);
 	i = 0;
 	dest_aux = (char *)dest;
