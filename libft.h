@@ -3,7 +3,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int		ft_atoi(const char *nptr);
+int	ft_atoi(const char *nptr);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
