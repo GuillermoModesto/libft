@@ -1,15 +1,15 @@
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+int	ft_strlcat(char *dst, const char *src, int dstsize)
 {
-	size_t	dlen;
-	size_t	slen;
-	size_t	i;
+	int	dlen;
+	int	slen;
+	int	i;
 
 	if (!dst && dstsize == 0)
-		return (ft__strlen(src));
-	dlen = ft__strlen(dst);
-	slen = ft__strlen(src);
+		return (ft_strlen(src));
+	dlen = ft_strlen(dst);
+	slen = ft_strlen(src);
 	if (dlen >= dstsize)
 		return (dstsize + slen);
 	i = 0;

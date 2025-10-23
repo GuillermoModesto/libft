@@ -1,8 +1,8 @@
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t count)
+void	*ft_memcpy(void *dest, const void *src, int count)
 {
-	size_t		i;
+	int		i;
 	char	*dest_aux;
 	char	*src_aux;
 
