@@ -7,7 +7,7 @@ void	ft_putstr_fd(char *s, int fd)
 	i = 0;
 	if (!s)
 		return ;
-	while (str[i])
+	while (s[i])
 	{
 		write (fd, s, 1);
 		i++;
