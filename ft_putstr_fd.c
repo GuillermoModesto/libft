@@ -9,7 +9,7 @@ void	ft_putstr_fd(char *s, int fd)
 		return ;
 	while (s[i])
 	{
-		write (fd, s, 1);
+		write (fd, &s[i], 1);
 		i++;
 	}
 }

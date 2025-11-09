@@ -1,10 +1,10 @@
 #include "libft.h"
 
-int	ft_strlcat(char *dst, const char *src, int dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int	dlen;
-	int	slen;
-	int	i;
+	size_t	dlen;
+	size_t	slen;
+	size_t	i;
 
 	if (!dst && dstsize == 0)
 		return (ft_strlen(src));

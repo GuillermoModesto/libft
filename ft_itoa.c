@@ -1,68 +1,48 @@
 #include "libft.h"
 
-int	ft_get_size(int n)
+int	num_len(long n)
 {
-	int	amount;
+	int	len;
 
-	amount = 0;
+	if (n == 0)
+		return (1);
+	len = 0;
 	if (n < 0)
-		amount++;
-	while (n != 0)
+	{
+		len++;
+		n = -n;
+	}
+	while (n > 0)
 	{
 		n /= 10;
-		amount++;
+		len++;
 	}
-	return (amount);
-}
-
-int	ft_get_unit(int size, int n)
-{
-	int	unit;
-	int	i;
-
-	unit = 1;
-	i = 0;
-	if (n < 0)
-		i++;
-	while (i < size - 1)
-	{
-		unit *= 10;
-		i++;
-	}
-	return (unit);
-}
-
-void	ft_check_sign(int *n, int *i, char *res)
-{
-	if (*n < 0)
-	{
-		res[0] = '-';
-		*i = *i + 1;
-		*n *= (-1);
-	}
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	int		size;
-	int		i;
-	int		unit;
+	long	nb;
+	int		len;
 	char	*res;
 
-	i = 0;
-	size = ft_get_size(n);
-	unit = ft_get_unit(size, n);
-	res = (char *)(malloc((size + 1) * sizeof(char)));
-	if (res == NULL)
+	nb = n;
+	len = num_len(nb);
+	res = (char *)malloc(sizeof(char) * (len + 1));
+	if (!res)
 		return (NULL);
-	ft_check_sign(&n, &i, res);
-	while (i < size)
+	res[len] = '\0';
+	if (nb < 0)
 	{
-		res[i] = (n / unit) + '0';
-		n %= unit;
-		unit /= 10;
-		i++;
+		res[0] = '-';
+		nb = -nb;
 	}
-	res[i] = '\0';
+	if (nb == 0)
+		res[0] = '0';
+	while (nb > 0)
+	{
+		res[--len] = (nb % 10) + '0';
+		nb /= 10;
+	}
 	return (res);
 }

@@ -1,15 +1,13 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void	*ft_calloc(int nelem, int elsize)
+void	*ft_calloc(size_t nelem, size_t elsize)
 {
 	void	*ptr;
 
-	if (nelem == 0 || elsize == 0)
-		return (NULL);
 	ptr = malloc(nelem * elsize);
-	if (ptr == NULL)
+	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, (nelem * elsize));
+	ft_bzero(ptr, nelem * elsize);
 	return (ptr);
 }

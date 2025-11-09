@@ -1,15 +1,15 @@
 #include "libft.h"
 
-void	*ft_memchr(const void *buf, int c, int count)
+void	*ft_memchr(const void *buf, int c, size_t count)
 {
-	int		i;
-	char	*aux_buf;
+	size_t		i;
+	const unsigned char	*aux_buf;
 
 	i = 0;
-	aux_buf = (char *)buf;
+	aux_buf = (const unsigned char *)buf;
 	while (i < count)
 	{
-		if (aux_buf[i] == c)
+		if (aux_buf[i] == (unsigned char)c)
 			return ((void *)(aux_buf + i));
 		i++;
 	}

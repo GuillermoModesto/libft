@@ -1,14 +1,14 @@
 #include "libft.h"
 
-int	ft_memcmp(const void *buf1, const void *buf2, int count)
+int	ft_memcmp(const void *buf1, const void *buf2, size_t count)
 {
-	int		i;
-	char	*aux_buf1;
-	char	*aux_buf2;
+	size_t		i;
+	const unsigned char	*aux_buf1;
+	const unsigned char	*aux_buf2;
 
 	i = 0;
-	aux_buf1 = (char *)buf1;
-	aux_buf2 = (char *)buf2;
+	aux_buf1 = (const unsigned char *)buf1;
+	aux_buf2 = (const unsigned char *)buf2;
 	while (i < count)
 	{
 		if (aux_buf1[i] != aux_buf2[i])
