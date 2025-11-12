@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guantino <guantino@student.42malaga.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/10 10:47:22 by guantino          #+#    #+#             */
+/*   Updated: 2025/11/10 12:02:30 by guantino         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -27,4 +38,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	new[i] = '\0';
 	return (new);
 }
-

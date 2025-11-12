@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guantino <guantino@student.42malaga.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/10 11:55:07 by guantino          #+#    #+#             */
+/*   Updated: 2025/11/10 11:57:36 by guantino         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
-	void	*content;
+	void			*content;
 	struct s_list	*next;
 }	t_list;
 
@@ -20,8 +31,8 @@ int		ft_strlen(const char *s);
 int		ft_strncmp(const char *str1, const char *str2, size_t count);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-size_t		ft_strlcpy(char *dst, const char *src, size_t size);
-size_t		ft_strlcat(char *dst, const char *src, size_t size);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strchr(const char *buf, int c);
 char	*ft_strrchr(const char *buf, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
@@ -51,6 +62,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

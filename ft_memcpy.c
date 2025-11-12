@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guantino <guantino@student.42malaga.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/10 10:58:09 by guantino          #+#    #+#             */
+/*   Updated: 2025/11/10 11:58:08 by guantino         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t count)
 {
-	size_t		i;
-	unsigned char	*dest_aux;
+	size_t				i;
+	unsigned char		*dest_aux;
 	const unsigned char	*src_aux;
 
 	if (!dest && !src)

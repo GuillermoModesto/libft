@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guantino <guantino@student.42malaga.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/10 11:15:38 by guantino          #+#    #+#             */
+/*   Updated: 2025/11/10 13:01:24 by guantino         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "libft.h"
 
-size_t	count_words(const char *s, char c)
+static size_t	count_words(const char *s, char c)
 {
 	size_t	i;
 	size_t	n;
@@ -21,7 +32,7 @@ size_t	count_words(const char *s, char c)
 	return (n);
 }
 
-char	*substr_dumpy(const char *s, size_t start, size_t len)
+static char	*substr_dumpy(const char *s, size_t start, size_t len)
 {
 	char	*p;
 	size_t	i;
@@ -39,7 +50,7 @@ char	*substr_dumpy(const char *s, size_t start, size_t len)
 	return (p);
 }
 
-void	*mega_free(char **out, size_t k)
+static void	*mega_free(char **out, size_t k)
 {
 	while (k > 0)
 		free(out[--k]);
@@ -47,29 +58,32 @@ void	*mega_free(char **out, size_t k)
 	return (NULL);
 }
 
+static void	catch_words(size_t *i, size_t *start, char c, const char *s)
+{
+	while (s[*i] && s[*i] == c)
+		*i += 1;
+	*start = *i;
+	while (s[*i] && s[*i] != c)
+		*i += 1;
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	start;
 	size_t	k;
-	size_t	words;
 	char	**out;
 
 	if (!s)
 		return (NULL);
-	words = count_words(s, c);
-	out = (char **)malloc((words + 1) * sizeof(char *));
+	out = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!out)
 		return (NULL);
 	i = 0;
 	k = 0;
 	while (s[i])
 	{
-		while (s[i] && s[i] == c)
-			i++;
-		start = i;
-		while (s[i] && s[i] != c)
-			i++;
+		catch_words(&i, &start, c, s);
 		if (i > start)
 		{
 			out[k] = substr_dumpy(s, start, i - start);

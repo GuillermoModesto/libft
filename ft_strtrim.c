@@ -1,4 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: guantino <guantino@student.42malaga.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/10 11:54:30 by guantino          #+#    #+#             */
+/*   Updated: 2025/11/10 13:51:17 by guantino         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "libft.h"
+
+static char	*trim_cpy(size_t len, char *new, const char *s1, size_t start)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < len)
+	{
+		new[i] = s1[start + i];
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
+}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -6,7 +31,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	end;
 	size_t	len;
 	char	*new;
-	size_t	i;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -20,13 +44,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 	new = (char *)malloc(len + 1);
 	if (!new)
 		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		new[i] = s1[start + i];
-		i++;
-	}
-	new[i] = '\0';
-	return (new);
+	return (trim_cpy(len, new, s1, start));
 }
-
