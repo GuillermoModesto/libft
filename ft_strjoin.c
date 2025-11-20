@@ -23,7 +23,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	size1 = ft_strlen(s1);
 	size2 = ft_strlen(s2);
-	new = (char *) malloc((size1 + size2) * sizeof(char));
+	new = (char *) malloc((size1 + size2 + 1) * sizeof(char));
+	if (!new)
+		return (NULL);
 	while (i < size1)
 	{
 		new[i] = s1[i];
